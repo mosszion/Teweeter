@@ -7,13 +7,17 @@ nav {
   color:#FFFFFF;
   display:flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
  }
  span {
+   
+   margin: 1.5em;
+   padding: 1.5em;
+ }
+ .tweeterIcon {
   font-family: "Bungee", sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin: 1.5em;
 
  }
  
