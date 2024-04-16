@@ -7,4 +7,5 @@ header {
   flex-direction: column;
   background-color: #d6b200;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  padding-top: 2.5em;
 }
