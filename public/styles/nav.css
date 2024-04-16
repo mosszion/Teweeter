@@ -1,8 +1,6 @@
 /* nav section styles */
 nav {
-  font-family: "Bungee", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  
   height: 120px;
   width: 100vw;
   background-color: #4056A1;
@@ -10,12 +8,19 @@ nav {
   display:flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5em;
+  padding: 0 1.5em;
 
+ }
+ span {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
  }
  
  .newTweetText {
-
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   display:flex;
   flex-direction: column;
 
