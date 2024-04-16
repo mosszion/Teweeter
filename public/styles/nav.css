@@ -8,16 +8,25 @@ nav {
   display:flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5em;
+  margin: 1.5em;
  }
  span {
    
-   margin: 1.5em;
-   padding: 1.5em;
+   font-family: "Bungee", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+  
  }
- .tweeterIcon {
-  font-family: "Bungee", sans-serif;
-  font-weight: 400;
+ .newTweetText {
+  font-size: 24px;
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
   font-style: normal;
+  display:flex;
+  flex-direction: column;
+
 
  }
  
