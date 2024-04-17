@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $("#tweet-text").on("input", function() {
+  $("#tweet-text").on("keyup", function() {
   let noChar = $(this).val().length;
    let updatedNo = 140 - noChar;
    if (updatedNo < 0) {
