@@ -53,3 +53,8 @@ section {
   background-color: lightgray;
   
 }
+.counter.below-zero {
+
+  color: red;
+
+}
