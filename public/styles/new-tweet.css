@@ -5,6 +5,10 @@
   font-family: "Bungee", sans-serif;
   font-weight: 400;
   font-style: normal;
+  
+}
+.tweet-button:hover{
+  background-color: darkblue;
 }
 /* style for the form section */
 form {
@@ -42,7 +46,7 @@ section {
   background-color: inherit;
   border-bottom: 5px solid black;
   border: none;
-  padding-bottom: 3px;
+  padding: 3px;
 
   
  
