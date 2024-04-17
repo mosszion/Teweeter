@@ -1,0 +1,38 @@
+button {
+  color: white;
+  background-color: #4056A1;
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+form {
+  display:flex;
+  justify-content: center;
+  align-items: first baseline;
+  flex-direction: column;
+  width: 100%;
+  padding: 1.5em;
+}
+section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+.button-counter {
+  display:flex;
+  width:100%;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+#tweet-text {
+  width:100%;
+  
+  background-color: inherit;
+  border-bottom: think black;
+
+  
+ 
+
+}
