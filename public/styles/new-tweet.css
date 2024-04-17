@@ -1,10 +1,12 @@
-button {
+/* style for the tweet button */
+.tweet-button{
   color: white;
   background-color: #4056A1;
   font-family: "Bungee", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+/* style for the form section */
 form {
   display:flex;
   justify-content: center;
@@ -13,12 +15,14 @@ form {
   width: 100%;
   padding: 1.5em;
 }
+/* Styling for the section new-tweet */
 section {
   display: flex;
   width: 100%;
   justify-content: center;
   flex-direction: column;
 }
+/* style for the tweet button and counter  */
 .button-counter {
   display:flex;
   width:100%;
@@ -26,9 +30,12 @@ section {
   justify-content: space-between;
   padding-top: 10px;
   font-family: "Bungee", sans-serif;
+  padding-left: 3px;
+  padding-right: 3px;
   font-weight: 400;
   font-style: normal;
 }
+/* style for the textarea */
 #tweet-text {
   width:100%;
   
