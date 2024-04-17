@@ -5,10 +5,10 @@ $(document).ready(function() {
    let updatedNo = 140 - noChar;
    if (updatedNo < 0) {
 
-     $(".counter").text(updatedNo).css("color","red") ;
+     $(".counter").text(updatedNo).addClass("below-zero") ;
    } else {
 
-     $(".counter").text(updatedNo) ;
+     $(".counter").text(updatedNo).removeClass("below-zero") ;
    }
   
 });
