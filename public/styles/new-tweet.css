@@ -48,7 +48,8 @@ section {
   border: none;
   padding: 3px;
 
+}
+#tweet-text:focus{
+  background-color: lightgray;
   
- 
-
 }
