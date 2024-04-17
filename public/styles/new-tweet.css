@@ -25,12 +25,17 @@ section {
   flex-direction: row;
   justify-content: space-between;
   padding-top: 10px;
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #tweet-text {
   width:100%;
   
   background-color: inherit;
-  border-bottom: think black;
+  border-bottom: 5px solid black;
+  border: 0 solid transparent ;
+  padding-bottom: 3px;
 
   
  
