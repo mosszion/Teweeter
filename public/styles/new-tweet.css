@@ -42,10 +42,10 @@ section {
 /* style for the textarea */
 #tweet-text {
   width:100%;
-  
-  background-color: inherit;
-  border-bottom: 5px solid black;
+  height: 50px;
   border: none;
+  border-bottom: 5px solid rgb(104, 98, 98);
+  background-color: inherit;
   padding: 3px;
 
 }
