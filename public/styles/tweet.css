@@ -1,11 +1,52 @@
-.tweet {
+section.tweet {
+  width: 95%;
   display: flex;
-  width: 100%;
   justify-content: center;
-  flex-direction: row;
-  border: 5px;
+  flex-direction: column;
+  border: solid 5px rgb(104, 98, 98);
+  padding: 10px;
+
+ 
 }
 article.tweet header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  
+}
+.name-head {
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+article.tweet footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}
+.day-icon{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.line {
+  border-bottom: 3px solid rgb(104, 98, 98);
+  padding-bottom: 12px;
+}
+.icons {
+  color: #4056A1;
+}
+
+.fa-flag:hover {
+  
+  color: goldenrod;
+}
+.fa-retweet:hover {
+  
+  color: goldenrod;
+}
+.fa-heart:hover {
+  
+  color: goldenrod;
 }
