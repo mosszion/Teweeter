@@ -8,11 +8,14 @@ section.tweet {
 
  
 }
+.tweet:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) ;
+}
 article.tweet header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
+  padding: 10px;
 }
 .name-head {
   display:flex;
@@ -29,12 +32,14 @@ article.tweet footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 10px;
 }
 .line {
   border-bottom: 3px solid rgb(104, 98, 98);
   padding-bottom: 12px;
+  padding: 10px;
 }
-.icons {
+.tweet:hover .icons {
   color: #4056A1;
 }
 
