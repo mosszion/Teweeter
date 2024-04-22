@@ -15,12 +15,14 @@ article.tweet header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
 }
 .name-head {
   display:flex;
-  justify-content: center;
+ 
   flex-direction: row;
+  align-items: center;
 }
 article.tweet footer {
   display: flex;
@@ -36,7 +38,7 @@ article.tweet footer {
 }
 .line {
   border-bottom: 3px solid rgb(104, 98, 98);
-  padding-bottom: 12px;
+  
   padding: 10px;
 }
 .tweet:hover .icons {
