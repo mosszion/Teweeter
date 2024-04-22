@@ -44,19 +44,10 @@ article.tweet footer {
 .tweet:hover .icons {
   color: #4056A1;
 }
+.icons i:hover {
+  color: goldenrod;
+}
 
-.fa-flag:hover {
-  
-  color: goldenrod;
-}
-.fa-retweet:hover {
-  
-  color: goldenrod;
-}
-.fa-heart:hover {
-  
-  color: goldenrod;
-}
 .image {
   background-color:inherit;
   width : 50px;
