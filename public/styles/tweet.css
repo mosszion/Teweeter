@@ -46,10 +46,14 @@ article.tweet footer {
 }
 .icons i:hover {
   color: goldenrod;
+  
 }
 
 .image {
   background-color:inherit;
   width : 50px;
   height : 50px;
+}
+.icons i {
+  padding: 5px;
 }
