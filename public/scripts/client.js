@@ -31,19 +31,37 @@ function createTweetElement(tweet) {
   // Construct the HTML structure for the tweet
   const html = `
     <header>
-      <img src="${tweet.user.avatar}" class="avatar">
-      <span class="username">${tweet.user.username}</span>
-      <span class="handle">${tweet.user.handle}</span>
+       <div class="name-head">
+          <span ><img src="${tweetData.user.avatars}" class="avatar"></span>
+          <span class="username">${tweetData.user.name}</span>
+       </div>
+       <div>
+            <span class="handle">${tweetData.user.handle}</span>
+       </div>
     </header>
-    <div class="content">
-      ${tweet.content}
-    </div>
-    <footer>
-      <span class="timestamp">${tweet.timestamp}</span>
-      <div class="actions">
-        <!-- Add buttons for liking, retweeting, etc. -->
-      </div>
-    </footer>
+
+    <p>
+      ${tweetData.content.text}
+    </p>
+    
+    <footer >
+            <div class="line"></div>
+            <div class="day-icon">
+              <div class="days">
+                <span>${tweetData.created_at}</span>
+              </div>
+              <div class="icons">
+               
+                <i class="fa-solid fa-flag"></i>
+                <i class="fa-solid fa-retweet" ></i>
+                <i class="fa-solid fa-heart" ></i>
+
+
+              </div>
+            </div>
+
+
+          </footer>
   `;
 
   // Set the HTML content of the tweet article
