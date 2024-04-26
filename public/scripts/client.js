@@ -52,8 +52,10 @@ const data = [
   const renderTweets = function(tweets) {
     //looping through list of tweets
     for(let tweet of tweets) {
-      return createTweetElement(tweet)
+       const value = createTweetElement(tweet)
+       $('#tweets-container').append(value);
     }
+    
 
 }
 
@@ -113,7 +115,7 @@ const $tweets = renderTweets(data);
 
 // // Test / driver code (temporary)
 console.log($tweets); // to see what it looks like
-$('#tweets-container').append($tweets); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+ // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
 
 })
