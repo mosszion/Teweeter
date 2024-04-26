@@ -117,5 +117,10 @@ const $tweets = renderTweets(data);
 console.log($tweets); // to see what it looks like
  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
+ //Handling the submit button
+ $( "form" ).on( "submit", function( event ) {
+  alert( "Handler for `submit` called." );
+  event.preventDefault();
+});
 
 })
