@@ -53,7 +53,7 @@ const data = [
     //looping through list of tweets
     for(let tweet of tweets) {
        const value = createTweetElement(tweet)
-       $('#tweets-container').append(value);
+       $('#tweets-container').prepend(value);
     }
     
 
