@@ -19,7 +19,7 @@ $(() => {
     }
     
     // Escape user input before constructing HTML
-    const safeContent = {
+    const safeHTML = {
       avatar: escape(tweet.user.avatars),
       name: escape(tweet.user.name),
       handle: escape(tweet.user.handle),
@@ -33,23 +33,23 @@ $(() => {
     const html = `
     <header>
     <div class="name-head">
-    <span ><img src="${safeContent.avatar}" class="avatar"></span>
-    <span class="username">${safeContent.name}</span>
+    <span ><img src="${safeHTML.avatar}" class="avatar"></span>
+    <span class="username">${safeHTML.name}</span>
     </div>
     <div>
-    <span class="handle">${safeContent.handle}</span>
+    <span class="handle">${safeHTML.handle}</span>
     </div>
     </header>
     
     <p>
-    ${safeContent.text}
+    ${safeHTML.text}
     </p>
     
     <footer >
     <div class="line"></div>
     <div class="day-icon">
     <div class="days">
-    <span>${safeContent.created_at}</span>
+    <span>${safeHTML.created_at}</span>
     </div>
     <div class="icons">
     
@@ -98,14 +98,17 @@ $("#form").submit(function(event) {
   console.log( "Handler called." );
   event.preventDefault();
 
+   //hide the error message element before validation
+   $('.error').slideUp();
+
    // Get the tweet text from the textarea
    const tweetText = $('#tweet-text').val().trim();
 
    // Check if the tweet text is empty or exceeds the character limit
    if (tweetText === '' || tweetText === null) {
-       alert('Please enter a tweet.');
+       $('.error').text('🚨Please enter a tweet.🚨').slideDown();
    } else if (tweetText.length > 140) {
-       alert('Tweet exceeds 140 characters.');
+    $('.error').text('🚨Tweet exceeds 140 characters.🚨').slideDown();
    } else {
      // If tweet is valid, submit the form
     //  this.submit();
