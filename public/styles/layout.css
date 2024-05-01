@@ -27,12 +27,42 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ .header-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 200px;
+  margin-top: 40px;
+ 
+
+ }
  main {
-  width: 90%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color:inherit ;
+  padding-top: 0px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
 
  }
- 
+ @media only screen and (min-width: 768px) {
+  /* we can use this style only and if only we have a min with of 768px */
+  
+}
+
+/* Desktop styles */ 
+
+@media only screen and (min-width: 1024px) {
+  .header-main {
+    flex-direction: column;
+    align-items: center;
+    width: max 1024px;
+  }
+  .nav{
+    display: none;
+  }
+
+}

@@ -41,7 +41,7 @@ section.new-tweet {
 }
 /* style for the textarea */
 #tweet-text {
-  width:100%;
+  width:inherit;
   height: 50px;
   border: none;
   border-bottom: 5px solid rgb(104, 98, 98);
@@ -57,4 +57,12 @@ section.new-tweet {
 
   color: red;
 
+}
+.error{
+  display: none; 
+  color: red; 
+  margin-top: 5px; 
+  text-align: center;
+  border: solid red 3px;
+  padding: 10px;
 }
