@@ -87,7 +87,7 @@ function createTweetElement(tweet) {
             <div class="line"></div>
             <div class="day-icon">
               <div class="days">
-                <span>${tweet.created_at}</span>
+                <span>${timeago.format(tweet.created_at)}</span>
               </div>
               <div class="icons">
                
@@ -110,12 +110,12 @@ function createTweetElement(tweet) {
   return $tweet;
 }
 
-const $tweets = renderTweets(data);
-// const $tweet = createTweetElement(tweetData);
+// const $tweets = renderTweets(data);
+// // const $tweet = createTweetElement(tweetData);
 
-// // Test / driver code (temporary)
-console.log($tweets); // to see what it looks like
- // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+// // // Test / driver code (temporary)
+// console.log($tweets); // to see what it looks like
+//  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
  //Handling the submit button
 //  $( "#form" ).on( "submit", function( event ) {
@@ -146,9 +146,8 @@ $("#form").submit(function(event) {
     }
 });
 
+// fetching tweets using ajax
 
-
-})
 const loadTweets = function () {
   $.ajax({
     type: 'GET',
@@ -169,6 +168,31 @@ const loadTweets = function () {
 //call the loadTweets function
 
 loadTweets()
+
+})
+
+// fetching tweets using ajax
+
+// const loadTweets = function () {
+//   $.ajax({
+//     type: 'GET',
+//     url: 'http://localhost:8080/tweets',
+//     dataType:'json',
+//     success: function(response){
+//         // Display the fetched data in the data-container
+//         // $('#data-container').html(response);
+//         renderTweets(response)
+//     },
+//     error: function(xhr, status, error){
+//         // Handle errors
+//         console.error(xhr.responseText);
+//     }
+// });
+
+// };
+// //call the loadTweets function
+
+// loadTweets()
 
 
 });
