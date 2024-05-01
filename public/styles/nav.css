@@ -32,4 +32,28 @@ nav {
 
 
  }
+
+
  
+/* Desktop styles */ 
+
+@media only screen and (max-width: 768px) {
+  nav{
+    height: 120px;
+  width: 100vw;
+  background-color: #d6b200;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  color:#FFFFFF;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  position: fixed;
+  top: 0;
+ 
+ 
+  }
+  
+  
+
+}
