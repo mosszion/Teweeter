@@ -107,60 +107,63 @@ $("#form").submit(function(event) {
    } else if (tweetText.length > 140) {
        alert('Tweet exceeds 140 characters.');
    } else {
-       // If tweet is valid, submit the form
-       this.submit();
-   }
+     // If tweet is valid, submit the form
+    //  this.submit();
+     // Get form data
+     const formData = $("#form").serialize();
+     console.log(formData)
+     
+     // Create AJAX request
+     // Submit POST request
+     $.ajax({
+       type: 'POST',
+       url: '/tweets',
+         data: formData,
+         success: function(response) {
+           // Handle success response
+           console.log('Form data submitted successfully:', response);
+           loadTweets()
+           //remove the text from the text area
+           $('#tweet-text').val('');
+
+          },
+          error: function(xhr, status, error) {
+            // Handle error
+            console.error('Error submitting form data:', error);
+          }
+        });
+        }
   
   
-  // Get form data
-  const formData = $("#form").serialize();
-  console.log(formData)
 
-  // Create AJAX request
-   // Submit POST request
-   $.ajax({
-    type: 'POST',
-    url: '/tweets',
-    data: formData,
-    success: function(response) {
-        // Handle success response
-        console.log('Form data submitted successfully:', response);
-        loadTweets()
-      },
-    error: function(xhr, status, error) {
-        // Handle error
-        console.error('Error submitting form data:', error);
-    }
-});
-
-
-})
-////////////////////////////////////////////////////////////////////////
-// fetching tweets using ajax
-////////////////////////////////////////////////////////////////////////  
-
-const loadTweets = () => {
-  $.ajax({
-    type: 'GET',
-    url: 'http://localhost:8080/tweets',
-    dataType:'json',
-    success: function(response){
-        // Display the fetched data in the data-container
-        // $('#data-container').html(response);
-        renderTweets(response)
-    },
-    error: function(xhr, status, error){
-        // Handle errors
-        console.error(xhr.responseText);
-    }
-});
-
-};
-//call the loadTweets function
-
-loadTweets()
-
-
-});
-
-
+        
+      })
+      
+      
+      ////////////////////////////////////////////////////////////////////////
+      // fetching tweets using ajax
+      ////////////////////////////////////////////////////////////////////////  
+      
+      const loadTweets = () => {
+        $.ajax({
+          type: 'GET',
+          url: '/tweets',
+          dataType:'json',
+          success: function(response){
+              // Display the fetched data in the data-container
+              // $('#data-container').html(response);
+              renderTweets(response)
+          },
+          error: function(xhr, status, error){
+              // Handle errors
+              console.error(xhr.responseText);
+          }
+      });
+      
+      };
+      //call the loadTweets function
+      
+      loadTweets()
+    });
+    
+    
