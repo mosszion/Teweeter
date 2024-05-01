@@ -20,30 +20,30 @@ $(() => {
 //   "created_at": 1461116232227
 // }
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 //create renderTweets function
 //loops through a list of tweets
@@ -118,9 +118,59 @@ console.log($tweets); // to see what it looks like
  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
  //Handling the submit button
- $( "form" ).on( "submit", function( event ) {
-  alert( "Handler for `submit` called." );
+//  $( "#form" ).on( "submit", function( event ) {
+//   console.log( "Handler called." );
+//   event.preventDefault();
+$("#form").submit(function(event) {
+  console.log( "Handler called." );
   event.preventDefault();
+
+
+  // Get form data
+  const formData = $("#form").serialize();
+  console.log(formData)
+
+  // Create AJAX request
+   // Submit POST request
+   $.ajax({
+    type: 'POST',
+    url: '/tweets',
+    data: formData,
+    success: function(response) {
+        // Handle success response
+        console.log('Form data submitted successfully:', response);
+    },
+    error: function(xhr, status, error) {
+        // Handle error
+        console.error('Error submitting form data:', error);
+    }
 });
 
+
+
 })
+const loadTweets = function () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8080/tweets',
+    dataType:'json',
+    success: function(response){
+        // Display the fetched data in the data-container
+        // $('#data-container').html(response);
+        renderTweets(response)
+    },
+    error: function(xhr, status, error){
+        // Handle errors
+        console.error(xhr.responseText);
+    }
+});
+
+};
+//call the loadTweets function
+
+loadTweets()
+
+
+});
+
+
