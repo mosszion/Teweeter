@@ -7,140 +7,97 @@
 
 $(() => {
 
-//   // Test / driver code (temporary). Eventually will get this from the server.
-// const tweetData = {
-//   "user": {
-//     "name": "Newton",
-//     "avatars": "https://i.imgur.com/73hZDYK.png",
-//       "handle": "@SirIsaac"
-//     },
-//   "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//   "created_at": 1461116232227
-// }
-// Fake data taken from initial-tweets.json
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
+////////////////////////////////////////////////////////////////////////
+// function createTweetElement
+////////////////////////////////////////////////////////////////////////  
+  function createTweetElement(tweet) {
+    // Sanitize user input
+    function escape(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+    
+    // Escape user input before constructing HTML
+    const safeContent = {
+      avatar: escape(tweet.user.avatars),
+      name: escape(tweet.user.name),
+      handle: escape(tweet.user.handle),
+      text: escape(tweet.content.text),
+      created_at: escape(timeago.format(tweet.created_at))
+    };
+    // Create the article element for the tweet
+    const $tweet = $('<article>').addClass('tweet');
+    
+    // Construct the HTML structure for the tweet
+    const html = `
+    <header>
+    <div class="name-head">
+    <span ><img src="${safeContent.avatar}" class="avatar"></span>
+    <span class="username">${safeContent.name}</span>
+    </div>
+    <div>
+    <span class="handle">${safeContent.handle}</span>
+    </div>
+    </header>
+    
+    <p>
+    ${safeContent.text}
+    </p>
+    
+    <footer >
+    <div class="line"></div>
+    <div class="day-icon">
+    <div class="days">
+    <span>${safeContent.created_at}</span>
+    </div>
+    <div class="icons">
+    
+    <i class="fa-solid fa-flag"></i>
+    <i class="fa-solid fa-retweet" ></i>
+    <i class="fa-solid fa-heart" ></i>
+    
+    
+    </div>
+    </div>
+    
+    
+    </footer>
+    `;
+    
+    // Set the HTML content of the tweet article
+    $tweet.html(html);
+    
+    // Return the created tweet article element
+    return $tweet;
+}
 
+////////////////////////////////////////////////////////////////////////
+// function renderTweets 
 //create renderTweets function
 //loops through a list of tweets
 //calls createTweetElement for each tweet
 //takes return value and appends to the tweets container
+////////////////////////////////////////////////////////////////////////  
+
   const renderTweets = function(tweets) {
     //looping through list of tweets
     for(let tweet of tweets) {
        const value = createTweetElement(tweet)
        $('#tweets-container').prepend(value);
     }
-    
 
 }
 
-// const createTweetElement = function (obj) {
-//   return 
-// }
+////////////////////////////////////////////////////////////////////////
+// form submission using ajax
+////////////////////////////////////////////////////////////////////////  
 
-function createTweetElement(tweet) {
-   // Sanitize user input
-   function escape(str) {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-}
-
-// Escape user input before constructing HTML
-const safeContent = {
-    avatar: escape(tweet.user.avatars),
-    name: escape(tweet.user.name),
-    handle: escape(tweet.user.handle),
-    text: escape(tweet.content.text),
-    created_at: escape(timeago.format(tweet.created_at))
-};
-  // Create the article element for the tweet
-  const $tweet = $('<article>').addClass('tweet');
-
-  // Construct the HTML structure for the tweet
-  const html = `
-    <header>
-       <div class="name-head">
-          <span ><img src="${safeContent.avatar}" class="avatar"></span>
-          <span class="username">${safeContent.name}</span>
-       </div>
-       <div>
-            <span class="handle">${safeContent.handle}</span>
-       </div>
-    </header>
-
-    <p>
-      ${safeContent.text}
-    </p>
-    
-    <footer >
-            <div class="line"></div>
-            <div class="day-icon">
-              <div class="days">
-                <span>${safeContent.created_at}</span>
-              </div>
-              <div class="icons">
-               
-                <i class="fa-solid fa-flag"></i>
-                <i class="fa-solid fa-retweet" ></i>
-                <i class="fa-solid fa-heart" ></i>
-
-
-              </div>
-            </div>
-
-
-          </footer>
-  `;
-
-  // Set the HTML content of the tweet article
-  $tweet.html(html);
-
-  // Return the created tweet article element
-  return $tweet;
-}
-
-// const $tweets = renderTweets(data);
-// // const $tweet = createTweetElement(tweetData);
-
-// // // Test / driver code (temporary)
-// console.log($tweets); // to see what it looks like
-//  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
- //Handling the submit button
-//  $( "#form" ).on( "submit", function( event ) {
-//   console.log( "Handler called." );
-//   event.preventDefault();
 $("#form").submit(function(event) {
   console.log( "Handler called." );
   event.preventDefault();
-
-
+  
+  
   // Get form data
   const formData = $("#form").serialize();
   console.log(formData)
@@ -164,10 +121,11 @@ $("#form").submit(function(event) {
 
 
 })
-
+////////////////////////////////////////////////////////////////////////
 // fetching tweets using ajax
+////////////////////////////////////////////////////////////////////////  
 
-const loadTweets = function () {
+const loadTweets = () => {
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8080/tweets',
