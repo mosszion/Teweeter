@@ -81,6 +81,7 @@ $(() => {
 ////////////////////////////////////////////////////////////////////////  
 
   const renderTweets = function(tweets) {
+    $('#tweets-container').empty();
     //looping through list of tweets
     for(let tweet of tweets) {
        const value = createTweetElement(tweet)
@@ -96,6 +97,19 @@ $(() => {
 $("#form").submit(function(event) {
   console.log( "Handler called." );
   event.preventDefault();
+
+   // Get the tweet text from the textarea
+   const tweetText = $('#tweet-text').val().trim();
+
+   // Check if the tweet text is empty or exceeds the character limit
+   if (tweetText === '' || tweetText === null) {
+       alert('Please enter a tweet.');
+   } else if (tweetText.length > 140) {
+       alert('Tweet exceeds 140 characters.');
+   } else {
+       // If tweet is valid, submit the form
+       this.submit();
+   }
   
   
   // Get form data
