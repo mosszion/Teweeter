@@ -86,23 +86,23 @@ const safeContent = {
   const html = `
     <header>
        <div class="name-head">
-          <span ><img src="${tweet.user.avatars}" class="avatar"></span>
-          <span class="username">${tweet.user.name}</span>
+          <span ><img src="${safeContent.avatar}" class="avatar"></span>
+          <span class="username">${safeContent.name}</span>
        </div>
        <div>
-            <span class="handle">${tweet.user.handle}</span>
+            <span class="handle">${safeContent.handle}</span>
        </div>
     </header>
 
     <p>
-      ${tweet.content.text}
+      ${safeContent.text}
     </p>
     
     <footer >
             <div class="line"></div>
             <div class="day-icon">
               <div class="days">
-                <span>${timeago.format(tweet.created_at)}</span>
+                <span>${safeContent.created_at}</span>
               </div>
               <div class="icons">
                
@@ -186,7 +186,7 @@ const loadTweets = function () {
 };
 //call the loadTweets function
 
-// loadTweets()
+loadTweets()
 
 
 });
