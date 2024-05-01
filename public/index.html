@@ -44,39 +44,46 @@
       </div>
       
     </nav>
-    <header class="nav">
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-   
-      <div>
-          <h2>Sam Gabrel</h2>
-      </div>
-  </header >
-  
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-  
-      <section class="new-tweet">
-
-        <h2>Compose Tweet</h2>
-        <p class="error"></p>
-        <form id="form" method="POST" action="/tweets" >
-           <label for="tweet-text">What are you humming about?</label>
-           <textarea name="text" id="tweet-text" ></textarea>
-           <div class="button-counter">
-             <button  id = "tButton" class = "tweet-button" type="submit">Tweet</button>
-             <output name="counter" class="counter"  for="tweet-text">140</output>
-           </div>
-        </form>
-      </section>
-      <section id="tweets-container">
-      
+    <!-- Header and maincontainer grouped in this div -->
+    <div class="header-main">
+      <header class="nav">
+        <div>
+            <img src="/images/profile-hex.png"> 
+        </div>
      
-      </section>
-      
-    </main>
+        <div>
+            <h2>Sam Gabrel</h2>
+        </div>
+    </header >
+    
+  
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+    
+        <section class="new-tweet">
+  
+        
+          <p class="error"></p>
+          <form id="form" method="POST" action="/tweets" >
+             <label for="tweet-text">What are you humming about?</label>
+             <textarea name="text" id="tweet-text" ></textarea>
+             <div class="button-counter">
+               <button  id = "tButton" class = "tweet-button" type="submit">Tweet</button>
+               <output name="counter" class="counter"  for="tweet-text">140</output>
+             </div>
+          </form>
+        </section>
+        <section id="tweets-container">
+        
+       
+        </section>
+        
+      </main>
+
+
+    </div>
+    
     
   </body>
 </html>
