@@ -113,6 +113,8 @@ $("#form").submit(function(event) {
      const formData = $("#form").serialize();
      console.log(formData)
      
+     //remove the text from the text area
+     $('#tweet-text').val('');
      // Create AJAX request
      // Submit POST request
      $.ajax({
@@ -123,8 +125,6 @@ $("#form").submit(function(event) {
            // Handle success response
            console.log('Form data submitted successfully:', response);
            loadTweets()
-           //remove the text from the text area
-           $('#tweet-text').val('');
 
           },
           error: function(xhr, status, error) {
