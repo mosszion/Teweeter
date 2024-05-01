@@ -64,6 +64,21 @@ $(() => {
 // }
 
 function createTweetElement(tweet) {
+   // Sanitize user input
+   function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+}
+
+// Escape user input before constructing HTML
+const safeContent = {
+    avatar: escape(tweet.user.avatars),
+    name: escape(tweet.user.name),
+    handle: escape(tweet.user.handle),
+    text: escape(tweet.content.text),
+    created_at: escape(timeago.format(tweet.created_at))
+};
   // Create the article element for the tweet
   const $tweet = $('<article>').addClass('tweet');
 
@@ -139,12 +154,16 @@ $("#form").submit(function(event) {
     success: function(response) {
         // Handle success response
         console.log('Form data submitted successfully:', response);
-    },
+        loadTweets()
+      },
     error: function(xhr, status, error) {
         // Handle error
         console.error('Error submitting form data:', error);
     }
 });
+
+
+})
 
 // fetching tweets using ajax
 
@@ -166,31 +185,6 @@ const loadTweets = function () {
 
 };
 //call the loadTweets function
-
-loadTweets()
-
-})
-
-// fetching tweets using ajax
-
-// const loadTweets = function () {
-//   $.ajax({
-//     type: 'GET',
-//     url: 'http://localhost:8080/tweets',
-//     dataType:'json',
-//     success: function(response){
-//         // Display the fetched data in the data-container
-//         // $('#data-container').html(response);
-//         renderTweets(response)
-//     },
-//     error: function(xhr, status, error){
-//         // Handle errors
-//         console.error(xhr.responseText);
-//     }
-// });
-
-// };
-// //call the loadTweets function
 
 // loadTweets()
 
