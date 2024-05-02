@@ -1,5 +1,5 @@
 /* style for the tweet button */
-.tweet-button{
+.tweetButton{
   color: white;
   background-color: #4056A1;
   font-family: "Bungee", sans-serif;
@@ -7,7 +7,7 @@
   font-style: normal;
   
 }
-.tweet-button:hover{
+.tweetButton:hover{
   background-color: darkblue;
 }
 /* style for the form section */
@@ -20,14 +20,14 @@ form {
   padding: 1.5em;
 }
 /* Styling for the section new-tweet */
-section.new-tweet {
+section.newTweet {
   display: flex;
   width: 100%;
   justify-content: center;
   flex-direction: column;
 }
 /* style for the tweet button and counter  */
-.button-counter {
+.buttonCounter {
   display:flex;
   width:100%;
   flex-direction: row;
@@ -40,7 +40,7 @@ section.new-tweet {
   font-style: normal;
 }
 /* style for the textarea */
-#tweet-text {
+#tweetText {
   width:inherit;
   height: 50px;
   border: none;
@@ -49,11 +49,11 @@ section.new-tweet {
   padding: 3px;
 
 }
-#tweet-text:focus{
+#tweetText:focus{
   background-color: lightgray;
   
 }
-.counter.below-zero {
+.counter.belowZero {
 
   color: red;
 

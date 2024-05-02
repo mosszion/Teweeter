@@ -27,7 +27,7 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- .header-main {
+ .headerMain {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -49,9 +49,9 @@ body {
   padding-left: 50px;
 
  }
- @media only screen and (max-width: 768px) {
+ @media only screen and (max-width: 1024px) {
   /* we can use this style only and if only we have a min with of 768px */
-  .header-main {
+  .headerMain {
     flex-direction: column;
     align-items: center;
     width: max 1024px;

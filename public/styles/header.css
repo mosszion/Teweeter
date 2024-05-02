@@ -1,6 +1,6 @@
 header.nav {
-  height: 200px;
-  width: 800px;
+  height: 400px;
+  width: 100%;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@ header.nav {
  
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   header.nav{
     height: 690px;
   width: 100vw;

@@ -1,4 +1,4 @@
-section#tweets-container {
+section#tweetsContainer {
   width: 95%;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@ article.tweet {
   margin: 10px;
 }
 .tweet:hover {
-  box-shadow: 0px 0px 10px rgba(227, 222, 222, 0.5) ;
+  box-shadow: 0px 0px 10px rgba(32, 29, 29, 0.5) ;
 }
 article.tweet header {
   display: flex;
@@ -25,7 +25,7 @@ article.tweet header {
   
 
 }
-.name-head {
+.nameHead {
   display:flex;
  
   flex-direction: row;
@@ -37,7 +37,7 @@ article.tweet footer {
   justify-content: space-around;
   padding: 5px;
 }
-.day-icon{
+.dayIcon{
   display: flex;
   flex-direction: row;
   justify-content: space-between;

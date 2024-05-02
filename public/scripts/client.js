@@ -5,6 +5,9 @@
  */
 
 
+////////////////////////////////////////////////////////////////////////
+// FUNCTION LOAD WHEN READY ENCAPSULATES ALL OUR FUNCTIONS
+////////////////////////////////////////////////////////////////////////  
 $(() => {
 
 ////////////////////////////////////////////////////////////////////////
@@ -47,7 +50,7 @@ $(() => {
     
     <footer >
     <div class="line"></div>
-    <div class="day-icon">
+    <div class="dayIcon">
     <div class="days">
     <span>${safeHTML.created_at}</span>
     </div>
@@ -81,11 +84,11 @@ $(() => {
 ////////////////////////////////////////////////////////////////////////  
 
   const renderTweets = function(tweets) {
-    $('#tweets-container').empty();
+    $('#tweetsContainer').empty();
     //looping through list of tweets
     for(let tweet of tweets) {
        const value = createTweetElement(tweet)
-       $('#tweets-container').prepend(value);
+       $('#tweetsContainer').prepend(value);
     }
 
 }
@@ -102,7 +105,7 @@ $("#form").submit(function(event) {
    $('.error').slideUp();
 
    // Get the tweet text from the textarea
-   const tweetText = $('#tweet-text').val().trim();
+   const tweetText = $('#tweetText').val().trim();
 
    // Check if the tweet text is empty or exceeds the character limit
    if (tweetText === '' || tweetText === null) {
@@ -117,34 +120,34 @@ $("#form").submit(function(event) {
      console.log(formData)
      
      //remove the text from the text area
-     $('#tweet-text').val('');
-     // Create AJAX request
+     $('#tweetText').val('');
      // Submit POST request
      $.ajax({
        type: 'POST',
        url: '/tweets',
-         data: formData,
-         success: function(response) {
-           // Handle success response
-           console.log('Form data submitted successfully:', response);
-           loadTweets()
-
+       data: formData,
+       success: function(response) {
+         // Handle success response
+         console.log('Form data submitted successfully:', response);
+         loadTweets()
+         
           },
           error: function(xhr, status, error) {
             // Handle error
             console.error('Error submitting form data:', error);
           }
         });
-        }
-  
-  
-
-        
-      })
+      }
       
       
-      ////////////////////////////////////////////////////////////////////////
-      // fetching tweets using ajax
+      
+      
+    })
+    
+    
+    ////////////////////////////////////////////////////////////////////////
+    // fetching tweets using ajax
+    // Create AJAX request
       ////////////////////////////////////////////////////////////////////////  
       
       const loadTweets = () => {
@@ -154,7 +157,7 @@ $("#form").submit(function(event) {
           dataType:'json',
           success: function(response){
               // Display the fetched data in the data-container
-              // $('#data-container').html(response);
+              
               renderTweets(response)
           },
           error: function(xhr, status, error){

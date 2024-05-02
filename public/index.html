@@ -46,10 +46,10 @@
     </nav>
 
     <!-- Header and maincontainer grouped in this div -->
-    <div class="header-main">
+    <div class="headerMain">
       <header class="nav">
         <div>
-            <img src="/images/profile-hex.png"> 
+            <img src="/images/profile-hex.png" alt="Girl in diamond shape frame"> 
         </div>
      
         <div>
@@ -61,20 +61,20 @@
       <!-- Page-specific (main) content here -->
       <main class="container">
     
-        <section class="new-tweet">
+        <section class="newTweet">
   
         
           <p class="error"></p>
           <form id="form" method="POST" action="/tweets" >
-             <label for="tweet-text">What are you humming about?</label>
-             <textarea name="text" id="tweet-text" ></textarea>
-             <div class="button-counter">
-               <button  id = "tButton" class = "tweet-button" type="submit">Tweet</button>
-               <output name="counter" class="counter"  for="tweet-text">140</output>
+             <label for="tweetText">What are you humming about?</label>
+             <textarea name="text" id="tweetText" ></textarea>
+             <div class="buttonCounter">
+               <button  id = "tButton" class = "tweetButton" type="submit">Tweet</button>
+               <output name="counter" class="counter"  for="tweetText">140</output>
              </div>
           </form>
         </section>
-        <section id="tweets-container">
+        <section id="tweetsContainer">
         
        
         </section>
