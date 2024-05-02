@@ -109,7 +109,7 @@ $("#form").submit(function(event) {
 
    // Check if the tweet text is empty or exceeds the character limit
    if (tweetText === '' || tweetText === null) {
-       $('.error').text('🚨Please enter a tweet.🚨').slideDown();
+       $('.error').text('🚨No Text!! Please enter a tweet text.🚨').slideDown();
    } else if (tweetText.length > 140) {
     $('.error').text('🚨Tweet exceeds 140 characters.🚨').slideDown();
    } else {
